@@ -1,6 +1,6 @@
 import random
 import hangman_stages as stage  # Drawings of the stickman
-import word_list as wl # Word list
+import word_list as wl  # Word list
 
 # Create initial variables and lists
 word_list = wl.word_list
