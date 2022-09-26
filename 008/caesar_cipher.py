@@ -1,4 +1,6 @@
 from alphabet import alphabet
+
+
 def caesar(txt, shift, direction):
     new_msg_list = []
     for i in txt:
@@ -36,6 +38,8 @@ def main():
             break
     text = input("Type your message:\n").lower()
     shift = int(input("Type the shift number:\n"))
+    if shift > 26:
+        shift %= 26
     caesar(text, shift, direction)
     repeat = str(input('Repeat? (Yes)(No)\n')).lower()
     if repeat == 'yes':
