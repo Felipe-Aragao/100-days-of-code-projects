@@ -1,3 +1,4 @@
+from alphabet import alphabet
 def caesar(txt, shift, direction):
     new_msg_list = []
     for i in txt:
@@ -24,16 +25,21 @@ def caesar(txt, shift, direction):
     print(new_msg)
 
 
-alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-            'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+def main():
+    while True:
+        direction = input("Type 'encode' to encrypt, type 'decode' to "
+                          "decrypt:\n")
+        if direction != 'encode' and direction != 'decode':
+            print('Please choose one option!')
+            continue
+        else:
+            break
+    text = input("Type your message:\n").lower()
+    shift = int(input("Type the shift number:\n"))
+    caesar(text, shift, direction)
+    repeat = str(input('Repeat? (Yes)(No)\n')).lower()
+    if repeat == 'yes':
+        main()
 
-while True:
-    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-    if direction != 'encode' and direction != 'decode':
-        print('Please choose one option!')
-        continue
-    else:
-        break
-text = input("Type your message:\n").lower()
-shift = int(input("Type the shift number:\n"))
-caesar(text, shift, direction)
+
+main()
