@@ -9,13 +9,9 @@ def encrypt(txt, shift):
         if shift + index <= 25:
             new_msg_list.append(alphabet[index + shift])
         else:
-            if index == 25:
-                index = 0
-                new_msg_list.append(alphabet[(index + shift) - 1])
-            else:
-                new_shift = shift - (25 - index)
-                index = 0
-                new_msg_list.append(alphabet[(index + new_shift) - 1])
+            new_shift = shift - (25 - index)
+            index = 0
+            new_msg_list.append(alphabet[(index + new_shift) - 1])
     new_msg = ''.join(new_msg_list)
     print(new_msg)
 
