@@ -18,7 +18,7 @@ print(f'{len(chosen_word)} letters\n', ''.join(display))
 while '_' in display and lives > 0:
     guess = str(input('Choose a letter: ')).lower()
     # Test if the guess is correct
-    for i in range(0, len(chosen_word) - 1):
+    for i in range(0, len(chosen_word)):
         if guess in chosen_word_list:
             try:
                 index = chosen_word_list.index(guess, i)
