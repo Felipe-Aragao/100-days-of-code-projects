@@ -60,6 +60,12 @@ def game():
         else:
             print('Please, chose a valid option.')
             continue
+    while True:
+        if computer_sum < 17:
+            computer_cards.append(random.choice(cards))
+            computer_sum = sum(computer_cards)
+        else:
+            break
 
     if player_sum == computer_sum:
         draw_msg()
