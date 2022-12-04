@@ -1,8 +1,10 @@
 import random
+import os
+
 from game_data import data
 
 
-def person_characteristics():
+def person_characteristics(a):
     random_number = random.randint(0, len(data) - 1)
     name = data[random_number]['name']
     follower_count = data[random_number]['follower_count']
@@ -31,20 +33,33 @@ def win_condition(follow_a, follow_b):
 
 print('Higher or Lower')
 points = 0
+test = ['', '']
 
 while True:
+    print(data)
     print('\nA:', end=' ')
-    followers_a = person_characteristics()
+    followers_a = person_characteristics(test)
     print('or')
     print('B:', end=' ')
-    followers_b = person_characteristics()
+    followers_b = person_characteristics(followers_a)
+    if followers_a[1] == followers_b[1]:
+        os.system('cls')
+        continue
     guess = str(input('Who has more followers? (A/B) ')).lower()
     if guess == 'a':
-        points += win_condition(followers_a, followers_b)
-        print(f'Points = {points}')
+        if win_condition(followers_a, followers_b) == 1:
+            points += 1
+            print(f'Points = {points}')
+        else:
+            print(f'You finished with {points} points')
+            break
     elif guess == 'b':
-        points += win_condition(followers_b, followers_a)
-        print(f'Points = {points}')
+        if win_condition(followers_b, followers_a) == 1:
+            points += 1
+            print(f'Points = {points}')
+        else:
+            print(f'You finished with {points} points')
+            break
     else:
         print('Please type a valid option')
         continue
