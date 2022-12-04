@@ -4,7 +4,7 @@ import os
 from game_data import data
 
 
-def person_characteristics(a):
+def person_characteristics():
     random_number = random.randint(0, len(data) - 1)
     name = data[random_number]['name']
     follower_count = data[random_number]['follower_count']
@@ -36,12 +36,11 @@ points = 0
 test = ['', '']
 
 while True:
-    print(data)
     print('\nA:', end=' ')
-    followers_a = person_characteristics(test)
+    followers_a = person_characteristics()
     print('or')
     print('B:', end=' ')
-    followers_b = person_characteristics(followers_a)
+    followers_b = person_characteristics()
     if followers_a[1] == followers_b[1]:
         os.system('cls')
         continue
