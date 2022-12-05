@@ -33,7 +33,6 @@ def win_condition(follow_a, follow_b):
 
 print('Higher or Lower')
 points = 0
-test = ['', '']
 
 while True:
     print('\nA:', end=' ')
